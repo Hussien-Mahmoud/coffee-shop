@@ -1,3 +1,4 @@
 **.pyc
 front_end_files/
 .idea/
+db.sqlite3
