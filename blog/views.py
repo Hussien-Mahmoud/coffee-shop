@@ -1,7 +1,6 @@
-from django.shortcuts import render
-from django.views.generic.base import TemplateView
+from main.views import BaseView
 
 
 # Create your views here.
-class BlogView(TemplateView):
+class BlogView(BaseView):
     template_name = 'blog/index.html'

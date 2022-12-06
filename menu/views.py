@@ -1,7 +1,6 @@
-from django.shortcuts import render
-from django.views.generic.base import TemplateView
+from main.views import BaseView
 
 
 # Create your views here.
-class MenuView(TemplateView):
+class MenuView(BaseView):
     template_name = 'menu/index.html'
