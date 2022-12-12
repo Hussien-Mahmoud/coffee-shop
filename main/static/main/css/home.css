@@ -2,8 +2,6 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: url("/files/images/home_image/home-img.jpeg") no-repeat;
-    /*background: url("data:image!*, %3Cjpeg xmlns='http://127.0.0.1:8000/files/images/home_image/home-img.jpeg'");*/
     background-size: cover;
     background-position: center;
 }
