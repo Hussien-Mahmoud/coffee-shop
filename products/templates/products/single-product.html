@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block css %}
+<style>
+section > * {
+    color: white;
+    font-size: 3em;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<section>
+
+    <h1>{{ product.name }}</h1>
+    <h2>{{ product.description }}</h2>
+    <h4>{{ product.price }}</h4>
+    <h5 style="text-decoration: line-through">{{ product.old_price }}</h5>
+    <br>
+    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+
+</section>
+{% endblock %}

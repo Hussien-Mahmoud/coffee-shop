@@ -1,0 +1,36 @@
+{% load static %}
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="/" class="logo">
+        <img src="{% static 'images/logo.png' %}" alt="logo">
+    </a>
+
+    <nav class="navbar">
+        <a href="{% url 'main' %}">home</a>
+        <a href="{% url 'menu' %}">menu</a>
+        <a href="{% url 'products' %}">products</a>
+        <a href="{% url 'blog' %}">blogs</a>
+        <a href="{% url 'main' %}#contact">contact us</a>
+        <a href="{% url 'main' %}#about">about</a>
+    </nav>
+
+    <div class="icons">
+        <div class="fas fa-search" id="search-btn"></div>
+        <div class="fas fa-shopping-cart" id="cart-btn"></div>
+        <div class="fas fa-bars" id="menu-btn"></div>
+    </div>
+
+    <div class="search-form">
+        <input type="search" id="search-box" placeholder="search here...">
+        <label for="search-box" class="fas fa-search"></label>
+    </div>
+
+    <div class="cart-items-container">
+        <a href="{% url 'checkout' %}" class="btn">checkout now</a>
+    </div>
+
+</header>
+
+<!-- header section ends -->

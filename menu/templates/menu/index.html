@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'menu/css/style.css'%}">
+{% endblock %}
+
+
+{% block content %}
+<!-- menu section starts  -->
+
+<section class="menu" id="menu">
+
+    <h1 class="heading"> our <span>menu</span> </h1>
+
+    {% for category in categories.all %}
+    <div class="category-container">
+        <h1 class="category">{{ category.name }}</h1>
+        <div class="box-container">
+
+            {% for item in category.items.all %}
+            <a href="{% url 'item' item.slug %}">
+                <div class="box">
+                    <img src="{{ item.image.url }}" alt="">
+                    <h3>{{ item.name }}</h3>
+                    <div class="price">${{ item.price }}
+                        {% if item.old_price != None %}
+                        <span>{{ item.old_price }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+
+        </div>
+    </div>
+    {% endfor %}
+
+</section>
+
+<!-- menu section ends -->
+{% endblock %}

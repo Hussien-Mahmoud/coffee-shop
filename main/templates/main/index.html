@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'main/css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/about.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/reviews.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/contact.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+
+{% include 'main/include/home.html' %}
+{% include 'main/include/about.html' %}
+{% include 'main/include/review.html' %}
+{% include 'main/include/contact.html' %}
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section class="item" style="padding-top: 11rem; background-color: #eeeeee">
+        <img src="{{ item.image.url }}" alt="">
+        <h1>{{ item.name }}</h1>
+        <h3>{{ item.description }}</h3>
+        <h5>{{ item.price }}</h5>
+        <h5>{{ item.old_price }}</h5>
+    </section>
+{% endblock %}
