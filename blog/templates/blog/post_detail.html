@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'blog/css/style.css'%}">
+{% endblock %}
+
+
+{% block content %}
+<!-- blogs section starts  -->
+
+<section>
+    <h1 class="heading">{{ post.title|upper }}</h1>
+
+    <div>
+        <div class="image">
+            <img src="{{ post.image.url }}" alt="{{ post.title }}">
+        </div>
+        <div style="color: white; font-size: 2rem">{{ post.body|linebreaksbr }}</div>
+    </div>
+</section>
+
+<!-- blogs section ends -->
+{% endblock %}

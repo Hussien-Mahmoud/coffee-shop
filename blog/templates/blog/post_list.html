@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'blog/css/style.css'%}">
+{% endblock %}
+
+
+{% block content %}
+<!-- blogs section starts  -->
+
+<section class="blogs" id="blogs">
+
+    <h1 class="heading"> our <span>blogs</span> </h1>
+
+    <div class="box-container">
+        {% for post in posts %}
+
+        <div class="box">
+            <div class="image">
+                <img src="{{ post.image.url }}" alt="">
+            </div>
+
+            <div class="content">
+                <a href="{{ post.get_absolute_url }}" class="title">{{ post.title|upper }}</a>
+                <span>by {{ post.author.username|capfirst }} / {{ post.publish }}</span>
+                <p>{{ post.body|truncatewords:14|linebreaks }}</p>
+                <a href="{{ post.get_absolute_url }}" class="btn">read more</a>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+
+</section>
+
+<!-- blogs section ends -->
+{% endblock %}
