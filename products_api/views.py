@@ -1,10 +1,6 @@
-from rest_framework.generics import ListAPIView, RetrieveAPIView
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import authentication, permissions
-import json
-from timeit import default_timer as timer
-
 
 from .serializers import ProductSerializer
 
@@ -12,26 +8,14 @@ from products.models import Product
 
 # Create your views here.
 
-# class ListProductsAPIView(ListAPIView):
-#     serializer_class = ProductSerializer
-#     def get_queryset(self):
-#         selected_products = self.request.session.get('selected_products', [])
-#         return Product.objects.filter(slug__in=selected_products)
-#
-# list_products = ListProductsAPIView.as_view()
-
 @api_view(['GET'])
 def list_products(request):
     selected_products = request.session.get('selected_products', {})
-    print(selected_products)
     # db_results = Product.objects.filter(slug__in=selected_products.keys())
 
     product_list = []
     for product_slug, quantity in selected_products.items():
-        start = timer()
         result = Product.objects.get(slug=product_slug)
-        end = timer()
-        print(end - start)
         serializer = ProductSerializer(result)
 
         data = serializer.data
@@ -75,7 +59,6 @@ def add_product(request, slug):
         selected_products[slug] = 1  # if not, new product will be added
 
     request.session['selected_products'] = selected_products
-
 
     data = ProductSerializer(selected_product).data
     data['quantity'] = selected_products[slug]
