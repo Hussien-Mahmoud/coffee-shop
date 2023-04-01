@@ -4,7 +4,7 @@ from google.oauth2 import service_account
 
 SECRET_KEY = os.environ['SECRET_KEY']
 
-DEBUG = os.environ['DEBUG']
+DEBUG = True if os.environ['DEBUG'] == 'true' else False
 
 ALLOWED_HOSTS = ['seashell-app-y7lcu.ondigitalocean.app']
 CSRF_TRUSTED_ORIGINS = ['https://seashell-app-y7lcu.ondigitalocean.app/']
