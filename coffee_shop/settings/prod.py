@@ -6,8 +6,8 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['coffee-shop-production-b9b3.up.railway.app']
-CSRF_TRUSTED_ORIGINS = ['https://coffee-shop-production-b9b3.up.railway.app']
+ALLOWED_HOSTS = ['coffee-shop-production-b9b3.up.railway.app', 'cafena.store', 'www.cafena.store']
+CSRF_TRUSTED_ORIGINS = ['https://coffee-shop-production-b9b3.up.railway.app',  'https://cafena.store', 'https://www.cafena.store']
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
