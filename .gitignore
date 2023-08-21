@@ -2,3 +2,6 @@
 **.pyc
 uploads/
 credentials.json
+staticfiles/
+.env
+db.sqlite3

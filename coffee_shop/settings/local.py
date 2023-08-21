@@ -1,23 +1,6 @@
 from .base import *
-import os
-import json
 
-with open('credentials.json', 'r') as file:
-    CREDENTIALS = json.loads(file.read())
+SECRET_KEY='django-insecure-adlfkn;asrlfh3j0259o;KH&*$%76&*(tU('
 
-
-SECRET_KEY = CREDENTIALS['SECRET_KEY']
-
-DEBUG = True
+DEBUG = False if os.environ.get('DEBUG') == 'False' else True   # the default is True
 ALLOWED_HOSTS = ['*']
-
-DATABASES = {
-    'default': {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": CREDENTIALS['PGDATABASE'],
-        "USER": CREDENTIALS['PGUSER'],
-        "PASSWORD": CREDENTIALS['PGPASSWORD'],
-        "HOST": CREDENTIALS['PGHOST'],
-        "PORT": CREDENTIALS['PGPORT']
-    }
-}

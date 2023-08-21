@@ -3,10 +3,13 @@
 import os
 import sys
 
+# To load environment variables from .env
+from dotenv import load_dotenv
+load_dotenv(override=False)
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'coffee_shop.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'coffee_shop.settings.local')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
