@@ -1,0 +1,6 @@
+venv/
+.idea/
+data/
+**.pyc
+.env.example
+.env

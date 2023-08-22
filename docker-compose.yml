@@ -1,0 +1,32 @@
+services:
+  db:
+    image: postgres:15
+    network_mode: "host"
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+  web:
+    build: .
+    command: sh -c "python manage.py collectstatic --noinput &&
+                    python manage.py migrate --noinput &&
+                    gunicorn -w 2 coffee_shop.wsgi"
+    network_mode: "host"
+    restart: always
+    volumes:
+      - .:/code
+      - ./uploads:/code/uploads
+    environment:
+      - DJANGO_SETTINGS_MODULE=coffee_shop.settings.local_pg
+      - DEBUG=False
+
+      - PGDATABASE=postgres
+      - PGUSER=postgres
+      - PGPASSWORD=postgres
+      - PGHOST=0.0.0.0
+      - PGPORT=5432
+    depends_on:
+      - db
