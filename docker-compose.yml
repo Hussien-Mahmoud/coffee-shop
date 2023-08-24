@@ -13,7 +13,7 @@ services:
     build: .
     command: sh -c "python manage.py collectstatic --noinput &&
                     python manage.py migrate --noinput &&
-                    gunicorn -w 2 coffee_shop.wsgi"
+                    gunicorn -w 2 coffee_shop.wsgi --bind 0.0.0.0:80"
     network_mode: "host"
     restart: always
     volumes:
@@ -21,7 +21,7 @@ services:
       - ./uploads:/code/uploads
     environment:
       - DJANGO_SETTINGS_MODULE=coffee_shop.settings.local_pg
-      - DEBUG=False
+      - DEBUG=True
 
       - PGDATABASE=postgres
       - PGUSER=postgres
