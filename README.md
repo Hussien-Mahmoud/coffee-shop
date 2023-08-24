@@ -6,6 +6,8 @@ this website is used to manage and display the menu of the coffee shop
 and for the customers to be able to buy products from it eg. like coffee beans.
 it also has a blog and a sections for displaying customer reviews.
 
+##### You can access this website on [cafena.store](https://www.cafena.store/)
+
  > **Warning**
  > the website isn't finished and some of it's features aren't available yet
 
