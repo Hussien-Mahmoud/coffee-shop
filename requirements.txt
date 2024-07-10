@@ -18,7 +18,7 @@ googleapis-common-protos==1.60.0
 gunicorn==21.2.0
 idna==3.4
 jmespath==1.0.1
-Pillow==10.0.0
+Pillow==10.3.0
 protobuf==4.24.1
 psycopg2-binary==2.9.7
 pyasn1==0.5.0
